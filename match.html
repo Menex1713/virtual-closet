@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual closet</title>
+    <link rel="stylesheet" href="match.css">
+    <link rel="icon" type="image/x-icon" href="vc.ico">
+</head>
+<body>
+    <header class="title-bar">
+        <a href="Index.html"><h1 class="title">Virtual Closet</h1></a>
+      </header>
+      <nav class="navigation">
+        <ul>
+          <li><a href="shirts.html">Shirts</a></li>
+          <li><a href="pants.html">Pants</a></li>
+          <li><a href="dresses.html">Dresses</a></li>
+          <li><a href="shoes.html">Shoes</a></li>
+          <li><a href="sandals.html">Sandals</a></li>
+          <li><a href="match.html">Match your outfit</a></li>
+          
+          <li><a href="upload.html">Upload your own</a></li>
+        </ul>
+      </nav>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Select your preferences:</legend>
+                <label for="shirts">Shirts:</label>
+                <input type="checkbox" id="shirts" name="options" value="shirts">
+                <label for="pants">Pants:</label>
+                <input type="checkbox" id="pants" name="options" value="pants">
+                <label for="dresses">Dresses:</label>
+                <input type="checkbox" id="dresses" name="options" value="dresses">
+                <label for="shoes">Shoes:</label>
+                <input type="checkbox" id="shoes" name="options" value="shoes">
+                <label for="sandals">Sandals:</label>
+                <input type="checkbox" id="sandals" name="options" value="sandals">
+            </fieldset>
+            <div id="options-container"></div>
+        </form>
+    </main>
+    <script>
+        const optionsContainer = document.querySelector("#options-container");
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        const selectedOptions = {
+            shirts: false,
+            pants: false,
+            dresses: false,
+            shoes: false,
+            sandals: false
+        };
+
+        function createGridItem() {
+            const gridItem = document.createElement("div");
+            gridItem.classList.add("grid-item");
+            
+            return gridItem;
+        }
+
+        function updateOptions() {
+            optionsContainer.innerHTML = "";
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    selectedOptions[checkbox.value] = true;
+                } else {
+                    selectedOptions[checkbox.value] = false;
+                }
+            });
+            if (selectedOptions.shirts || selectedOptions.pants) {
+                selectedOptions.dresses = false;
+                document.querySelector("#dresses").disabled = true;
+            } else {
+                document.querySelector("#dresses").disabled = false;
+            }
+            if (selectedOptions.shoes) {
+                selectedOptions.sandals = false;
+                document.querySelector("#sandals").disabled = true;
+            } else if (selectedOptions.sandals) {
+                selectedOptions.shoes = false;
+                document.querySelector("#shoes").disabled = true;
+            } else {
+                document.querySelector("#shoes").disabled = false;
+                document.querySelector("#sandals").disabled = false;
+            }
+            Object.keys(selectedOptions).forEach(key => {
+                if (selectedOptions[key]) {
+                    const gridItem = createGridItem();
+                    optionsContainer.appendChild(gridItem);
+                }
+            });
+        }
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener("change", updateOptions);
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <div class="grid-item">
+        <div class="image-slider"></div>
+      </div>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Virtual Closet</title>
+    <link rel="stylesheet" href="upload.css">
+    <link rel="icon" type="image/x-icon" href="vc.ico">
+<body>
+    <header class="title-bar">
+        <a href="Index.html"><h1 class="title">Virtual Closet</h1></a>
+      </header>
+      <nav class="navigation">
+        <ul>
+          <li><a href="shirts.html">Shirts</a></li>
+          <li><a href="pants.html">Pants</a></li>
+          <li><a href="dresses.html">Dresses</a></li>
+          <li><a href="shoes.html">Shoes</a></li>
+          <li><a href="sandals.html">Sandals</a></li>
+          <li><a href="match.html">Match your outfit</a></li>
+          
+          <li><a href="upload.html">Upload your own</a></li>
+        </ul>
+      </nav>
+</body>
+<form>
+    <label for="clothing-type">Clothing Type:</label>
+    <select id="clothing-type" name="clothing-type">
+      <option value="shirts">Shirts</option>
+      <option value="trousers">Trousers</option>
+      <option value="shoes">Shoes</option>
+    </select>
+    <br>
+    <label for="clothing-color">Color:</label>
+    <input type="text" id="clothing-color" name="clothing-color"><br>
+    <label for="clothing-size">Size:</label>
+    <input type="text" id="clothing-size" name="clothing-size"><br>
+    <label for="clothing-image">Image:</label>
+    <input type="file" id="clothing-image" name="clothing-image" accept="image/*" onchange="previewImage(event)">
+    <button id="clear-file">Clear</button>
+    <br>
+    <img id="preview" src="#" alt="Preview" style="display: none; max-width: 100px; max-height: 100px;">
+    <br>
+    <input type="submit" value="Add to Closet">
+  </form>
+  
+  <script>
+  function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var preview = document.getElementById('preview');
+      preview.src = reader.result;
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+  </script>
+</head>
+</html>
+  

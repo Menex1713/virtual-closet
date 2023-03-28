@@ -1,0 +1,122 @@
+/* CSS code for the form */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: url('C:\Users\rishu\OneDrive\Desktop\college\Sem 4\ADA\website\ocean-3605547__340.webp') no-repeat center center fixed;
+  background-size: cover;
+}
+
+
+.title {
+  font-family: Papyrus, fantasy;
+  font-size: 26px;
+  margin: 0.5em 1em;
+}
+form {
+    margin-top: 20px;
+    margin-left: 10%;
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+  
+  label {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
+  
+  input[type="file"] {
+    margin-bottom: 20px;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  .navigation {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    overflow-y: auto;
+    z-index: 1;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    margin: 0.5em 0;
+    padding: 0 1em;
+  }
+  
+  nav a {
+    color: #fff;
+    display: block;
+    font-size: 1.2em;
+    padding: 0.5em 0;
+    text-decoration: none;
+  }
+  
+  main {
+    margin: 2em 0 0 150px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2em;
+  }
+  
+  .btn {
+    background-color: #333;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 1em 2em;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 2em; 
+  }
+  
+  .btn:hover {
+    background-color: #666;
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+  }  
